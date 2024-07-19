@@ -9,7 +9,7 @@ const StudentTable = () => {
   useEffect(() => {
     // Obtener datos en cada render
     const fetchData = async () => {
-      const response = await axios.get('http://localhost:3001/estudiantes');
+      const response = await axios.get('http://localhost:3001/profesores');
       setRows(response.data);
     };
     fetchData();
@@ -19,22 +19,23 @@ const StudentTable = () => {
     id: number;
     nombre: string;
     apellido: string;
+    especialidad: string;
     telefono: string;
     email: string;
-    direccion: string;
+  
   }
-  // fincion para editar un estudiante
+  // fincion para editar un profesor
 
-  const editarStudent = (student: Row) => () => {
+  const editarTeacher = (teacher: Row) => () => {
     // mostrar el modal
   };
     
   //mostar el alert de la funcion de eliminar
-  const eliminarStudent = (student: Row) => () => {
+  const eliminarTeacher = (teacher: Row) => () => {
     //@ts-ignore
     Swal.fire({
       title: 'Desea eliminar',
-      text: "Desea eliminar al estudiante",
+      text: "Desea eliminar el profesor",
       icon: 'warning',
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
@@ -44,13 +45,13 @@ const StudentTable = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         //eli
-        fetch(`http://localhost:3001/estudiantes/${student.id}`, {
+        fetch(`http://localhost:3001/profesores/${teacher.id}`, {
           method: 'DELETE',
         }).then(() => {
           //@ts-ignore
           Swal.fire({
             title: 'eliminado!',
-            text: 'estudiante eliminado',
+            text: 'profesor eliminado',
             icon: 'success',
           });
         });
@@ -76,8 +77,8 @@ const StudentTable = () => {
       selector: (row: Row) => row.nombre,
     },
     {
-      name: 'Direccion',
-      selector: (row: Row) => row.direccion,
+      name: 'Especialidad',
+      selector: (row: Row) => row.especialidad,
     },
     {
       name: 'Email',
@@ -92,12 +93,12 @@ const StudentTable = () => {
             <button
               data-bs-toggle="modal"
               data-bs-target="#staticBackdrop"
-              onClick={editarStudent(row)}
+              onClick={editarTeacher(row)}
               className="btn btn-primary">
               <i className="material-icons-outlined">edit</i>
             </button>
             <button
-              onClick={eliminarStudent(row)}
+              onClick={eliminarTeacher(row)}
               className="btn btn-danger">
               <i className="material-icons-outlined">delete</i>
             </button>

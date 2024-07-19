@@ -3,13 +3,13 @@ import { useEffect, useState } from 'react';
 import DataTable from 'react-data-table-component';
 import Modal from '../component/Modal';
 
-const StudentTable = () => {
+const CursosTable = () => {
   const [rows, setRows] = useState([]); // Almacenar datos
 
   useEffect(() => {
     // Obtener datos en cada render
     const fetchData = async () => {
-      const response = await axios.get('http://localhost:3001/estudiantes');
+      const response = await axios.get('http://localhost:3001/cursos');
       setRows(response.data);
     };
     fetchData();
@@ -17,24 +17,22 @@ const StudentTable = () => {
 
   interface Row {
     id: number;
-    nombre: string;
-    apellido: string;
-    telefono: string;
-    email: string;
-    direccion: string;
+    nombre_curso: string;
+    descripcion: string;
+   
   }
-  // fincion para editar un estudiante
+  // fincion para editar un curso
 
-  const editarStudent = (student: Row) => () => {
+  const editarCurso = (curso: Row) => () => {
     // mostrar el modal
   };
     
   //mostar el alert de la funcion de eliminar
-  const eliminarStudent = (student: Row) => () => {
+  const eliminarCurso = (curso: Row) => () => {
     //@ts-ignore
     Swal.fire({
       title: 'Desea eliminar',
-      text: "Desea eliminar al estudiante",
+      text: "Desea eliminar el Curso",
       icon: 'warning',
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
@@ -44,13 +42,13 @@ const StudentTable = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         //eli
-        fetch(`http://localhost:3001/estudiantes/${student.id}`, {
+        fetch(`http://localhost:3001/cursos/${curso.id}`, {
           method: 'DELETE',
         }).then(() => {
           //@ts-ignore
           Swal.fire({
             title: 'eliminado!',
-            text: 'estudiante eliminado',
+            text: 'curso eliminado',
             icon: 'success',
           });
         });
@@ -64,25 +62,14 @@ const StudentTable = () => {
       selector: (row: Row) => row.id,
     },
     {
-      name: 'Nombre',
-      selector: (row: Row) => row.nombre,
+      name: 'Nombre del curso',
+      selector: (row: Row) => row.nombre_curso,
     },
     {
-      name: 'Apellido',
-      selector: (row: Row) => row.apellido,
+      name: 'Descricion',
+      selector: (row: Row) => row.descripcion,
     },
-    {
-      name: 'Telefono',
-      selector: (row: Row) => row.nombre,
-    },
-    {
-      name: 'Direccion',
-      selector: (row: Row) => row.direccion,
-    },
-    {
-      name: 'Email',
-      selector: (row: Row) => row.email,
-    },
+   
 
     {
       name: 'Acciones',
@@ -92,12 +79,12 @@ const StudentTable = () => {
             <button
               data-bs-toggle="modal"
               data-bs-target="#staticBackdrop"
-              onClick={editarStudent(row)}
+              onClick={editarCurso(row)}
               className="btn btn-primary">
               <i className="material-icons-outlined">edit</i>
             </button>
             <button
-              onClick={eliminarStudent(row)}
+              onClick={eliminarCurso(row)}
               className="btn btn-danger">
               <i className="material-icons-outlined">delete</i>
             </button>
@@ -119,4 +106,4 @@ const StudentTable = () => {
   );
 };
 
-export default StudentTable;
+export default CursosTable

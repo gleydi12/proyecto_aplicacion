@@ -1,13 +1,17 @@
 import React from 'react'
+import TeacherTable from './TeacherTable'
 
 
 const Teacher =() => {
+  
   return (
     <>
     <h1 className='header-section-create'>Lista de todos los Maestros
-  
-    </h1>
+    <button>Agregar Profesor</button>
 
+    </h1>
+    <TeacherTable />
+  
     <hr/>
     </>
   )

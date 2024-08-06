@@ -3,6 +3,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+
 }
   html
 {
@@ -20,7 +21,7 @@
     color: #fff;
     font-weight: 700;
     }
-   
+    
     main{
       display: flex;
       justify-content: space-between;
@@ -33,7 +34,7 @@
       color: #ffffff;
       padding: 10px;
       width: 300px;
-      height: 400vh;
+      height: 100vh;
       
     }
 
@@ -79,6 +80,7 @@
     }
 
     .header-section-create{
+      flex-grow: 1;
       min-height: 60px;         /* encabezado*/
       min-width: 166px;
       display: flex;
@@ -128,3 +130,96 @@
       border-radius: 5px;
       cursor: pointer;
     }
+
+.btn:active {
+  transform: translateY(-3px); /*el buscador de la pagina principal*/
+ }
+
+ .group{
+  margin-left: 20px; 
+   display: flex;              /* el buscador*/
+   line-height: 28px;
+   align-items: center;
+   position: relative;
+   max-width: 190px;
+
+  }
+  
+  .input {
+   width: 100%;
+   height: 40px;           /*estructura del la barra de buscador*/
+   line-height: 28px;
+   padding: 0 1rem;
+   padding-left: 2.5rem;
+   border: 2px solid transparent;
+   border-radius: 8px;
+   outline: none;
+   background-color: #9b9b9d;
+   color: #0d0c22;
+   transition: .3s ease;
+
+  }
+  
+  .input::placeholder {
+   color: #e0e0e8;
+  }
+  
+  .input:focus, input:hover {
+   outline: none;
+   border-color: rgba(234,76,137,0.4);
+   background-color: #fff;
+   box-shadow: 0 0 0 4px rgb(234 76 137 / 10%);
+  }
+  
+  .icon {
+   position: absolute; /*icono del buscador*/
+   left: 1rem;
+   fill: #e1e1e8;
+   width: 1rem;
+   height: 1rem;
+  }
+
+    
+.container1{      /*estructura del login iniciar sesion*/
+  width: 500px;
+  margin: auto;
+  margin-top: 80px;
+  padding: 40px;
+  background-color: rgb(255, 255, 255);
+  border-radius: 20px;
+  box-shadow: 0 0 25px rgb(20, 19, 19);
+
+}
+
+h2 {
+  text-align: center;
+  color: #333;
+}
+
+label {
+  color: #1a1515;
+  display: block;   /*color de letra*/
+  margin-top: 15px;
+}
+
+input[type="text"],
+input[type="email"],             /*borde, posision de las caja de textos y el color*/
+input[type="password"] {
+  align-items: center;
+  width: 100%;
+  padding: 10px;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 15px;
+  
+}
+
+.container2{
+  background: #585757;
+  display: flex ;
+  justify-content: space-between;
+  align-items: center;
+  color: #fff;
+}
+
+

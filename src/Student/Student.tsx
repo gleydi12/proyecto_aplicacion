@@ -1,14 +1,21 @@
 import React from 'react'
 import StudentTable from './StudentTable'
+import Buscador from '../component/Buscador'
+import PageHeader from '../component/PageHeader'
 
 const Student =() => {
   return (
     <>
-    <h1 className='header-section-create'>Lista de todos los estudiantes
+    <PageHeader>
+    <h1>Lista de todos los estudiantes</h1>
     <button>Agregar estudiante</button>
+    <Buscador/>
+    </PageHeader>
 
-    </h1>
+    
     <StudentTable />
+    <hr/>
+  
     <hr/>
     </>
   )

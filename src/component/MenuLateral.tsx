@@ -22,12 +22,17 @@ const MenuLateral =() => {
         </li>
        
         <li>
-         <Link to="/asignaturas"><i className="material-icons-outlined">class</i> Asignaturas</Link>
+         <Link to="/materias"><i className="material-icons-outlined">class</i> Materias</Link>
+        </li>
+
+        <li>
+         <Link to="/horarios"><i className="material-icons-outlined">class</i> Horarios</Link>
         </li>
 
         <li>
          <Link to="/calificaciones"><i className="material-icons-outlined">grade</i> Calificaciones</Link>
         </li>
+ 
          </ul>
     </nav>
       )
